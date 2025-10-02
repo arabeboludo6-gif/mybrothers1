@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>MyBrothers - Blog dos Brothers</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>MyBrothers 🍻</h1>
+
+  <!-- Formulário de postagem -->
+  <form method="POST" action="/postar">
+    <input type="text" name="titulo" placeholder="Título do post" required>
+    <textarea name="conteudo" placeholder="Texto" required></textarea>
+    <input type="text" name="autor" placeholder="Quem é você?" required>
+    <button type="submit">Postar</button>
+  </form>
+
+  <!-- Feed de posts -->
+  {% for post in posts %}
+    <div class="post">
+      <h2>{{ post.titulo }}</h2>
+      <p>{{ post.conteudo }}</p>
+      <small>Postado por {{ post.autor }} em {{ post.data }}</small>
+    </div>
+  {% endfor %}
+</body>
+</html>
